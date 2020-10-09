@@ -3,49 +3,23 @@
 This project is a social distancing detector implemented in Python with OpenCV and Tensorflow.
 The result that can be obtained is the following :
 
-![](/img/result.gif)
+### REFERENCES
 
-# Installation
+https://www.pyimagesearch.com/2017/09/11/object-detection-with-deep-learning-and-opencv/
 
-### OpenCV
-If you are working under a Linux distribution or a MacOS, use this [tutorial](https://www.pyimagesearch.com/2018/09/19/pip-install-opencv/) from Adrian Rosebrock to install this library.
+https://docs.opencv.org/4.3.0/d6/d0f/group__dnn.html
 
-### Other requirements
-All the other requirements can be installed via the command : 
-```bash
-pip install -r requirements.txt
-```
+https://www.ebenezertechs.com/mobilenet-ssd-using-opencv-3-4-1-deep-learning-module-python/
 
-# Download Tensorflow models
+https://www.pyimagesearch.com/2020/06/01/opencv-social-distancing-detector/
 
-In my project I used the faster_rcnn_inception_v2_coco model. I could not upload it to github because it is to heavy. You can download this model and several others from the [Tensorflow detection model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md). 
-Just download all the models you want to try out, put them in the models folder and unzip them. For example :
-```bash
-tar -xvzf faster_rcnn_inception_v2_coco_2018_01_28.tar.gz
-```
+CLAHE Paper : https://ieeexplore.ieee.org/document/6968381
 
-# Run project
+Social Distancing Algorithm
+Social Distancing is a method that used to control epidemic diseases. For COVID-19, we are using social distancing to protect us.
+This algorithm calculates distances between people and draw different colors of bounding boxes for three risk degree. 
+When this project were created, this references above used. Used SSD-MobileNet model for object detection. 
+For better detection for bad visibility areas, i added CLAHE preprocessing method. 
 
-### Calibrate
-Run 
-```bash
-python calibrate_with_mouse.py
-```
-You will be asked as input the name of the video and the size of the frame you want to work with. The default values are PETS2009.avi and 800 pixels.
-
-Note : It is important to start with the top right corner, than the bottom right, then bottom left, than end by top left corner !
-
-You can add any video to the video folder and work with that.
-
-### Start social distancing detection
-Run 
-```bash
-python social_distanciation_video_detection.py
-```
-You will be asked as inputs :
-- The tensorflow model you want to use (default value faster_rcnn_inception_v2_coco_2018_01_28).
-- The name of the video (default value PETS2009.avi).
-- The distance (in pixels between 2 persons).
-
-# Outputs
-Both video outputs (normal frame and bird eye view) will be stored in the outputs file.
+I am improving this algorithm for better detection and better distance measurement.
+<img src="https://github.com/KubraTurker/Social_Distancing-CV/blob/master/example.png">
